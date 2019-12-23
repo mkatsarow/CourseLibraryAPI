@@ -65,13 +65,50 @@ namespace CourseLibrary.API.Controllers
             }
 
             var courseEntity = _mapper.Map<Entities.Course>(course);
-            _courseLibraryRepository.AddCourse(authorId,courseEntity);
+            _courseLibraryRepository.AddCourse(authorId, courseEntity);
             _courseLibraryRepository.Save();
 
             var courseToReturn = _mapper.Map<CourseDto>(courseEntity);
             return CreatedAtRoute("GetCourseForAuthor",
                 new { authorId = authorId, courseId = courseToReturn.Id }, courseToReturn);
+        }
 
+        [HttpPut("{courseId}")]
+        public IActionResult UpdateCourseForAuthor(Guid authorId,
+            Guid courseId,
+            CourseForUpdateDto course)
+        {
+            if (_courseLibraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var courseForAuthorFroRepo = _courseLibraryRepository.GetCourse(authorId, courseId);
+
+            if (courseForAuthorFroRepo == null)
+            {
+                var courseToAdd = _mapper.Map<Entities.Course>(course);
+                courseToAdd.Id = courseId;
+
+                _courseLibraryRepository.AddCourse(authorId, courseToAdd);
+
+                _courseLibraryRepository.Save();
+
+                var courseToReturn = _mapper.Map<Models.CourseDto>(courseToAdd);
+
+                return CreatedAtRoute("GetCourseForAuthor",
+                    new { authorId, courseId = courseToReturn.Id },
+                    courseToReturn);
+
+            }
+
+            _mapper.Map(course, courseForAuthorFroRepo);
+
+            _courseLibraryRepository.UpdateCourse(courseForAuthorFroRepo);
+
+            _courseLibraryRepository.Save();
+
+            return NoContent();
         }
     }
 }

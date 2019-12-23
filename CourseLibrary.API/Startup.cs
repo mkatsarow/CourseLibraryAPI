@@ -27,9 +27,9 @@ namespace CourseLibrary.API
         {
             services.AddControllers(setupAction =>
             {
-               //We dont return Json if client request xml or another format of type
-               //We get 406 Not acceptable format 
-               setupAction.ReturnHttpNotAcceptable = true;
+                //We dont return Json if client request xml or another format of type
+                //We get 406 Not acceptable format 
+                setupAction.ReturnHttpNotAcceptable = true;
 
                 //We add XML as acceptable request from the client here!
                 //setupAction.OutputFormatters.Add(
