@@ -132,7 +132,13 @@ namespace CourseLibrary.API.Controllers
             if (courseForAuthorFromRepo == null)
             {
                 var courseDto = new CourseForUpdateDto();
-                patchDocument.ApplyTo(courseDto);
+                patchDocument.ApplyTo(courseDto,ModelState);
+
+                if (!TryValidateModel(courseDto))
+                {
+                    return ValidationProblem(ModelState);
+                }
+
                 var courseToAdd = _mapper.Map<Entities.Course>(courseDto);
                 courseToAdd.Id = courseId;
 
@@ -140,6 +146,8 @@ namespace CourseLibrary.API.Controllers
                 _courseLibraryRepository.Save();
 
                 var courseToReturn = _mapper.Map<CourseDto>(courseToAdd);
+
+
 
                 return CreatedAtRoute("GetCourseForAuthor",
                     new { authorId, courseId = courseToReturn.Id },
