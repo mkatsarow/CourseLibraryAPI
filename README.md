@@ -8,8 +8,8 @@ RESTful API Using ASP.NET Core 3.0
 
 ### Respond
 
-HTTP/1.1 200 OK
-Date: Wed, 25 Dec 2019 15:38:17 GMT
+HTTP/1.1 200 OK <br/>
+Date: Wed, 25 Dec 2019 15:38:17 GMT <br/>
 Status: 200 OK
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
