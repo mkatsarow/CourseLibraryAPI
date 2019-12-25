@@ -6,6 +6,7 @@ using AutoMapper;
 using CourseLibrary.API.Models;
 using CourseLibrary.API.ResourceParameters;
 using CourseLibrary.API.Services;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseLibrary.API.Controllers
@@ -68,5 +69,13 @@ namespace CourseLibrary.API.Controllers
             Response.Headers.Add("Allow", "GET,OPTIONS,POST");
             return Ok();
         }
+
+        //[HttpPatch]
+        //public ActionResult PartiallyUpdateCourseForAuthor(Guid authorId,
+        //    Guid courseid,
+        //    JsonPatchDocument<CourseForUpdateDto> course)
+        //{ 
+        
+        //}
     }
 }

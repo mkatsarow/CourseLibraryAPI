@@ -37,6 +37,7 @@ namespace CourseLibrary.API
 
                 //We add XML as acceptable request from the client here same as above example!
             }).AddXmlDataContractSerializerFormatters();
+            
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
