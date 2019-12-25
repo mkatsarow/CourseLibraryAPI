@@ -4,6 +4,7 @@ RESTful API Using ASP.NET Core 3.0
 ## Get list of Authors
 
 ### Request
+  GET /api/authors/
   http://localhost:51044/api/authors
 
 ### Respond
@@ -30,6 +31,7 @@ Transfer-Encoding: chunked <br/>
 ## Get one Author
 
 ### Request 
+  GET /api/authors/{id}
   http://localhost:51044/api/authors/5b3621c0-7b12-4e80-9c8b-3398cba7ee05
   
 ### Respond
