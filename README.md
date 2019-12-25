@@ -4,7 +4,7 @@ RESTful API Using ASP.NET Core 3.0
 ## Get list of Authors
 
 ### Request
-  http://localhost:51044/api/authors
+  /api/authors
 
 ### Respond
 
