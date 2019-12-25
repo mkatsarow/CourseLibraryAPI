@@ -10,9 +10,9 @@ RESTful API Using ASP.NET Core 3.0
 
 HTTP/1.1 200 OK <br/>
 Date: Wed, 25 Dec 2019 15:38:17 GMT <br/>
-Status: 200 OK
-Content-Type: application/json; charset=utf-8
-Transfer-Encoding: chunked
+Status: 200 OK <br/>
+Content-Type: application/json; charset=utf-8 <br/>
+Transfer-Encoding: chunked <br/>
 
 [
     {
