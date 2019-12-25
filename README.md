@@ -69,10 +69,10 @@ Transfer-Encoding: chunked <br/>
         "description": "Commandeering a ship in rough waters isn't easy.  Commandeering it without getting caught is even harder.  In                       this course you'll learn how to sail away and avoid those pesky musketeers.", <br>
         "aUthorId": "d28888e9-2ba9-473a-a40f-e38cb54f9b35" <br>
     }, <br/>
-    {
-        "id": "d8663e5e-7494-4f81-8739-6e0de1bea7ee",
-        "title": "Overthrowing Mutiny",
-        "description": "In this course, the author provides tips to avoid, or, if needed, overthrow pirate mutiny.",
-        "aUthorId": "d28888e9-2ba9-473a-a40f-e38cb54f9b35" <br/>
+    {<br/>
+        "id": "d8663e5e-7494-4f81-8739-6e0de1bea7ee", <br/>
+        "title": "Overthrowing Mutiny", <br/>
+        "description": "In this course, the author provides tips to avoid, or, if needed, overthrow pirate mutiny.", <br/>
+        "aUthorId": "d28888e9-2ba9-473a-a40f-e38cb54f9b35" <br/> 
     }
     <br/>
