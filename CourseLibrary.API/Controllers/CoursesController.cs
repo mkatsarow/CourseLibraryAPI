@@ -63,7 +63,7 @@ namespace CourseLibrary.API.Controllers
 
         public ActionResult<CourseForCreationDto> CreateCourseForAuthor(
             Guid authorId, CourseForCreationDto course)
-        {   
+        {
             if (!_courseLibraryRepository.AuthorExists(authorId))
             {
                 return NotFound();
@@ -131,12 +131,25 @@ namespace CourseLibrary.API.Controllers
 
             if (courseForAuthorFromRepo == null)
             {
-                return NotFound();
+                var courseDto = new CourseForUpdateDto();
+                patchDocument.ApplyTo(courseDto);
+                var courseToAdd = _mapper.Map<Entities.Course>(courseDto);
+                courseToAdd.Id = courseId;
+
+                _courseLibraryRepository.AddCourse(authorId, courseToAdd);
+                _courseLibraryRepository.Save();
+
+                var courseToReturn = _mapper.Map<CourseDto>(courseToAdd);
+
+                return CreatedAtRoute("GetCourseForAuthor",
+                    new { authorId, courseId = courseToReturn.Id },
+                    courseToReturn);
+
             }
 
             var courseToPatch = _mapper.Map<CourseForUpdateDto>(courseForAuthorFromRepo);
             // Add validation
-            patchDocument.ApplyTo(courseToPatch,ModelState);
+            patchDocument.ApplyTo(courseToPatch, ModelState);
 
             if (!TryValidateModel(courseToPatch))
             {
