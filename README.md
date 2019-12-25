@@ -1,12 +1,12 @@
 # CourseLibraryAPI
 RESTful API Using ASP.NET Core 3.0
 
-Get list of Authors
+##Get list of Authors
 
-Request
+###Request
   http://localhost:51044/api/authors
 
-Respond
+###Respond
 
 HTTP/1.1 200 OK
 Date: Wed, 25 Dec 2019 15:38:17 GMT
