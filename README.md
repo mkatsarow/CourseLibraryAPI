@@ -20,8 +20,9 @@ Transfer-Encoding: chunked <br/>
         "age": 329
     },<br/>
     {<br/>
-        "id": "2ee49fe3-edf2-4f91-8409-3eb25ce6ca51",<br/>
-        "name": "Atherton Crow Ridley",<br/>
-        "age": 298<br/>
-    }<br/>
+        "id": "2ee49fe3-edf2-4f91-8409-3eb25ce6ca51",
+        "name": "Atherton Crow Ridley",
+        "age": 298
+    }
+}
 <br/>
